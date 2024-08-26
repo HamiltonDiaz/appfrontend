@@ -11,3 +11,137 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.background-page {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.background-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../public/img.login.webp');
+  /* Imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px);
+  /* Aplica el desenfoque a la imagen de fondo */
+  z-index: -1;
+}
+
+.register-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+
+}
+
+.register-box {
+  background: linear-gradient(to bottom right, #4C55AE, #EBB072);
+  /* Gradiente con los colores primario y secundario */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.register-box .form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+}
+
+.register-box h2 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+.register-box label {
+  display: block;
+  text-align: left;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.register-box input,
+.register-box select {
+  width: calc(50% - 30px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.register-box .form-row1 {
+  width: calc(200% - 1px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.register-box .form-row2 {
+  width: calc(99% - 1px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.register-box input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #000A7B;
+  /* Color terciario */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.register-box button:hover {
+  background-color: #4C55AE;
+  /* Color primario */
+}
+
+.links {
+  margin-top: 20px;
+}
+
+.links a {
+  color: #ffffff;
+  /* Color secundario */
+  text-decoration: none;
+  font-size: 14px;
+
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
