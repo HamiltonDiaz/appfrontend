@@ -4,7 +4,6 @@ import RecuperacionPage from "./pages/auth/RecuperacionPage";
 import RegistroPage from "./pages/auth/RegistroPage";
 import Administracion from "./pages/Administracion";
 import WithAuth from "./util/WithAuth";
-import { useLocalStorage } from "react-use";
 
 function App() {
 
