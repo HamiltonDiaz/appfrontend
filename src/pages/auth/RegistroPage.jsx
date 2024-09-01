@@ -105,7 +105,7 @@ const RegistroPage = () => {
                                     placeholder="Contraseña" required
                                     {...register('contrasena')} />
                             </div>
-                            <button type="submit" >Registrarse</button>
+                            <input type="submit" value="Registrarse" />
                         </form>
                         <div className="links">
                             <NavLink to="/login">Ir a Login</NavLink>

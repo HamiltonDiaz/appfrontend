@@ -1,8 +1,20 @@
-/* General */
 body {
   margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.background-page {
+  margin: 0;
   padding: 0;
-  font-family: 'Times New Roman', Times, serif;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -10,111 +22,74 @@ body {
   overflow: hidden;
 }
 
-body::before {
+.background-page::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('../public/img.login.webp'); /* Imagen de fondo */
+  background-image: url('../public/img.login.webp');
+  /* Imagen de fondo */
   background-size: cover;
   background-position: center;
-  filter: blur(2px); /* Aplica el desenfoque a la imagen de fondo */
+  filter: blur(3px);
+  /* Aplica el desenfoque a la imagen de fondo */
   z-index: -1;
 }
 
-/* Login */
+.register-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+
+}
+
 .login-container {
   width: 100%;
   max-width: 320px;
   padding: 20px;
 }
 
-.login-box {
-  background: linear-gradient(to bottom right, rgba(76, 85, 174, 0.8), rgba(235, 176, 114, 0.8)); /* Gradiente con colores originales y opacidad ajustada */
+.container-olvido {
+  background: linear-gradient(to bottom right, rgba(155, 89, 182, 0.8), rgba(142, 68, 173, 0.8));
+  /* Gradiente con colores originales y opacidad ajustada */
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
   text-align: center;
 }
 
-.login-box h2 {
-  margin-bottom: 20px;
-  color: rgb(247, 247, 247);
-}
-
-.login-box label {
-  display: block;
-  text-align: left;
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.login-box input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: none;
-  border-radius: 5px;
-}
-
-.login-box button {
-  width: 100%;
-  padding: 10px;
-  background-color: #000A7B; /* Color terciario */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.login-box button:hover {
-  background-color: #4C55AE; /* Color primario */
-}
-
-.links {
-  margin-top: 20px;
-}
-
-.links a {
-  color: #ffffff; /* Color secundario */
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.links a:hover {
-  text-decoration: underline;
-}
-
-/*Registro */
-.register-container {
-  width: 100%;
-  max-width: 500px;
-  padding: 20px;
-}
 
 .register-box {
-  background: linear-gradient(to bottom right, rgba(76, 85, 174, 0.8), rgba(235, 176, 114, 0.8)); /* Gradiente con colores originales y opacidad ajustada */
+  background: linear-gradient(to bottom right, rgba(76, 85, 174, 0.8), rgba(235, 176, 114, 0.8));
+  /* Gradiente con los colores primario y secundario */
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.register-box h2 {
-  margin-bottom: 20px;
-  color: white;
+.register-box .form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
 }
 
-.register-box label {
+.register-box label,
+.email-recuperar {
   display: block;
   text-align: left;
   color: white;
   font-weight: bold;
   margin-bottom: 5px;
+}
+
+.email-recuperar {
+  font-weight: normal;
+  margin-bottom: 1rem
 }
 
 .register-box input,
@@ -126,38 +101,46 @@ body::before {
   border-radius: 5px;
 }
 
-.register-box .form-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
+.form-login input,
+.form-login select {
+  width: 100%;
 }
 
 .register-box .form-row1 {
-  width: calc(200% - 1px);  
+  width: calc(200% - 1px);
   padding: 10px;
   margin-bottom: 20px;
   border: none;
-  border-radius: 5px;  
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
 }
 
 .register-box .form-row2 {
-  width: calc(99% - 1px);  
+  width: calc(99% - 1px);
   padding: 10px;
   margin-bottom: 20px;
   border: none;
-  border-radius: 5px;  
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
 }
 
-.register-box button {
+input[type="email"] {
   width: 100%;
   padding: 10px;
-  background-color: #000A7B; /* Color terciario */
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #000A7B;
+  /* Color terciario */
   color: white;
   border: none;
   border-radius: 5px;
@@ -165,32 +148,16 @@ body::before {
   cursor: pointer;
 }
 
-.register-box button:hover {
-  background-color: #4C55AE; /* Color primario */
-}
-
-.links {
-  margin-top: 20px;
-}
-
-.links a {
-  color: #ffffff; /* Color secundario */
+.login {
+  display: block;
+  margin-top: 15px;
+  color: white;
   text-decoration: none;
-  font-size: 14px;
 }
 
-.links a:hover {
-  text-decoration: underline;
-}
-
-/*Recuperación */
-.container {
-  background: linear-gradient(to bottom right, rgba(155, 89, 182, 0.8), rgba(142, 68, 173, 0.8)); /* Gradiente con colores originales y opacidad ajustada */
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  width: 300px;
-  text-align: center;
+form button:hover {
+  background-color: #4C55AE;
+  /* Color primario */
 }
 
 h2 {
@@ -204,36 +171,18 @@ h4 {
   width: 0;
 }
 
-input[type="email"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: none;
-  border-radius: 5px;
+.links {
+  margin-top: 20px;
 }
 
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #4b0082;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background-color: #3a006f;
-}
-
-.login {
-  display: block;
-  margin-top: 15px;
-  color: white;
+.links a {
+  color: #ffffff;
+  /* Color secundario */
   text-decoration: none;
+  font-size: 14px;
+
 }
 
-a:hover {
+.links a:hover {
   text-decoration: underline;
 }
