@@ -45,8 +45,25 @@ code {
 
 }
 
+.login-container {
+  width: 100%;
+  max-width: 320px;
+  padding: 20px;
+}
+
+.container-olvido {
+  background: linear-gradient(to bottom right, rgba(155, 89, 182, 0.8), rgba(142, 68, 173, 0.8));
+  /* Gradiente con colores originales y opacidad ajustada */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+}
+
+
 .register-box {
-  background: linear-gradient(to bottom right, #4C55AE, #EBB072);
+  background: linear-gradient(to bottom right, rgba(76, 85, 174, 0.8), rgba(235, 176, 114, 0.8));
   /* Gradiente con los colores primario y secundario */
   padding: 30px;
   border-radius: 10px;
@@ -61,17 +78,18 @@ code {
 
 }
 
-.register-box h2 {
-  margin-bottom: 20px;
-  color: white;
-}
-
-.register-box label {
+.register-box label,
+.email-recuperar {
   display: block;
   text-align: left;
   color: white;
   font-weight: bold;
   margin-bottom: 5px;
+}
+
+.email-recuperar {
+  font-weight: normal;
+  margin-bottom: 1rem
 }
 
 .register-box input,
@@ -81,6 +99,11 @@ code {
   margin-bottom: 20px;
   border: none;
   border-radius: 5px;
+}
+
+.form-login input,
+.form-login select {
+  width: 100%;
 }
 
 .register-box .form-row1 {
@@ -113,7 +136,7 @@ input[type="email"] {
   border-radius: 5px;
 }
 
-.register-box input[type="submit"] {
+form input[type="submit"] {
   width: 100%;
   padding: 10px;
   background-color: #000A7B;
@@ -125,9 +148,27 @@ input[type="email"] {
   cursor: pointer;
 }
 
-.register-box button:hover {
+.login {
+  display: block;
+  margin-top: 15px;
+  color: white;
+  text-decoration: none;
+}
+
+form button:hover {
   background-color: #4C55AE;
   /* Color primario */
+}
+
+h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+h4 {
+  color: white;
+  margin-bottom: 20px;
+  width: 0;
 }
 
 .links {
