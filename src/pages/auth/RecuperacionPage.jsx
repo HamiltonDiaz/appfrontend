@@ -9,6 +9,8 @@ const RecuperacionPage = () => {
         recuperacionUsuario(data)
 
     }
+    console.log("ruta" + process.env.BACKEND_API_URL);
+
 
     return (
         <div className="background-page">

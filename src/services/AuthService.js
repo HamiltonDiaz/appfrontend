@@ -1,13 +1,20 @@
 import api from "../lib/axios";
+// import { isAxiosError } from 'axios'
 
 export async function createUser(user) {
-    console.log(user);
 
-    // try {
-    //     const { data } = await api.post('/nnn', user)
-    // } catch (error) {
+    try {
 
-    // }
+        const url = 'users/register'
+        const { data } = await api.post(url, user)
+        return data;
+    } catch (error) {
+
+        console.log(error);
+
+
+    }
+
 
 }
 
