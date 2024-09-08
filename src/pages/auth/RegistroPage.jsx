@@ -1,25 +1,36 @@
 import { useForm } from "react-hook-form";
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
+import { useMutation } from '@tanstack/react-query'
 import { createUser } from "../../services/AuthService"
 import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+
 
 const RegistroPage = () => {
 
 
     const { handleSubmit, register, reset } = useForm();
+    const navigate = useNavigate();
 
-    const onSubmit = async (data) => {
-        try {
-            const res = await createUser(data);
-            toast(res.message);
-            reset();
-        } catch (error) {
+    const { mutate } = useMutation({
+        mutationFn: createUser,
+        onError: (err) => {
+            toast(err.message);
 
+        },
+        onSuccess: (data) => {
+            if (!data.success) {
+                toast.error(data.message);
+            } else {
+                toast.success(data.message);
+                reset();
+                setTimeout(() => {
+                    navigate('/login')
+                }, 3000);
+            }
         }
+    });
 
-
-    }
+    const onSubmit = (data) => mutate(data);
 
     return (
         <>
@@ -29,10 +40,6 @@ const RegistroPage = () => {
                     <div className="register-box">
                         <h2>Registro</h2>
                         <form onSubmit={handleSubmit(onSubmit)} >
-                            <div className="form-row">
-                                <label htmlFor="id_tipos_identificacion" />
-                                <label htmlFor="numero_identificacion" />
-                            </div>
                             <div className="form-row">
                                 <select id="id_tipos_identificacion" required {...register('id_tipos_identificacion')}>
                                     <option value="1">Cédula de Ciudadanía</option>
@@ -44,11 +51,6 @@ const RegistroPage = () => {
                                     id="numero_identificacion"
                                     placeholder="Número de identificación"
                                     {...register('numero_identificacion')} />
-                            </div>
-
-                            <div className="form-row">
-                                <label htmlFor="primerNombre"></label>
-                                <label htmlFor="otrosNombres"></label>
                             </div>
                             <div className="form-row">
                                 <input
@@ -64,10 +66,6 @@ const RegistroPage = () => {
                                     {...register('otros_nombres')} />
                             </div>
                             <div className="form-row">
-                                <label htmlFor="primerApellido"></label>
-                                <label htmlFor="segundoApellido"></label>
-                            </div>
-                            <div className="form-row">
                                 <input
                                     type="text"
                                     placeholder="Primer Apellido"
@@ -79,10 +77,6 @@ const RegistroPage = () => {
                                     id="segundo_apellido"
                                     placeholder="Segundo Apellido" required
                                     {...register('segundo_apellido')} />
-                            </div>
-                            <div className="form-row">
-                                <label htmlFor="name"></label>
-                                <label htmlFor="correoElectronico"></label>
                             </div>
                             <div className="form-row1">
                                 <input
@@ -99,22 +93,25 @@ const RegistroPage = () => {
                                     placeholder="Correo electrónico" required
                                     {...register('email')} />
                             </div>
-
-                            <div className="form-row">
-                                <label htmlFor="telefono"></label>
-                                <label htmlFor="contrasena"></label>
-                            </div>
-                            <div className="form-row">
+                            <div className="form-row1">
                                 <input
                                     type="tel"
                                     id="telefono"
                                     placeholder="Teléfono móvil" required
                                     {...register('telefono')} />
+                            </div>
+                            <div className="form-row2">
+
                                 <input
                                     type="password"
                                     id="password"
                                     placeholder="Contraseña" required
                                     {...register('password')} />
+                                <input
+                                    type="password"
+                                    id="password_confirmation"
+                                    placeholder="Contraseña" required
+                                    {...register('password_confirmation')} />
                             </div>
                             <input type="submit" value="Registrarse" />
                         </form>

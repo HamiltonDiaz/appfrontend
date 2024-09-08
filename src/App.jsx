@@ -3,7 +3,9 @@ import LoginPage from "./pages/auth/LoginPage";
 import RecuperacionPage from "./pages/auth/RecuperacionPage";
 import RegistroPage from "./pages/auth/RegistroPage";
 import Administracion from "./pages/Administracion";
-import WithAuth from "./util/WithAuth";
+import AppLayout from "./layout/AppLayout";
+import AuthLayout from "./layout/AuthLayout";
+import ResetPassword from "./pages/auth/ResetPassword";
 
 function App() {
 
@@ -13,15 +15,18 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<LoginPage />}></Route>
-          <Route path="/registro" element={<RegistroPage />}></Route>
-          <Route path="/recuperacion" element={<RecuperacionPage />}></Route>
-          <Route element={<WithAuth redirectPath='/login' />}>
-            <Route path="/" element={<Administracion />} />
+          <Route element={<AuthLayout />} >
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/registro" element={<RegistroPage />} />
+            <Route path="/recuperacion" element={<RecuperacionPage />} />
+            <Route path="/recuperacion/:token" element={<ResetPassword />} />
           </Route>
 
+          <Route element={<AppLayout />}>
+            <Route path="/" element={<Administracion />} index />
+          </Route>
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter >
     </>
   );
 }
