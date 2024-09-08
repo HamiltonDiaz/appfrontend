@@ -1,26 +1,32 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { loginUsuario } from '../../services/AuthService.js'
+import { toast, ToastContainer } from 'react-toastify'
 
 const LoginPage = () => {
     const { handleSubmit, register } = useForm();
     const navigate = useNavigate();
 
-    const onSubmit = async (data) => {
-        const usuario = await loginUsuario(data)
-        localStorage.setItem('toke', JSON.stringify(usuario.token));
-        navigate('/');
-    }
-
+    const { mutate } = useMutation({
+        mutationFn: loginUsuario,
+        onError: (err) => {
+            toast.error(err.message);
+        },
+        onSuccess: () => {
+            navigate('/');
+        },
+    });
+    const onSubmit = (data) => mutate(data);
     return (
-        <>
+        <>  <ToastContainer />
             <div className="background-page">
                 <div className="login-container">
                     <div className="register-box">
                         <h2>Bienvenido</h2>
                         <form className="form-login" onSubmit={handleSubmit(onSubmit)}>
-                            <label htmlFor="username">Usuario</label>
-                            <input type="text" id="username" placeholder="Nombre de usuario" {...register('username')} />
+                            <label htmlFor="name">Usuario</label>
+                            <input type="text" id="name" placeholder="Nombre de usuario" {...register('name')} />
 
                             <label htmlFor="password">Contraseña</label>
                             <input type="password" id="password" placeholder="Contraseña" {...register('password')} />
