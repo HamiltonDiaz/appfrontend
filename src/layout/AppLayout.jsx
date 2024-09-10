@@ -13,7 +13,28 @@ const AppLayout = () => {
     }
 
     return (
-        <Outlet context={data} />
+        <>
+            <div className="sidebar">
+                <h5>HALADRILUY <i className="bi bi-gem"></i></h5>
+                <a href="#" className="active"><i className="bi bi-house"></i> INICIO</a>
+                <a href="#"><i className="bi bi-file-earmark-text"></i> Registros</a>
+                <a href="#"><i className="bi bi-people"></i> Usuarios</a>
+                <a href="#"><i className="bi bi-info-circle"></i> User Information</a>
+                <a href="#"><i className="bi bi-bar-chart"></i> Gráficas</a>
+                <a href="#"><i className="bi bi-chat-left-text"></i> Comentarios</a>
+            </div>
+            <div className="main-content">
+
+                <div className="topbar-icons">
+                    <i className="bi bi-people-fill" style={{ color: "#6A0DAD" }}></i>
+                    <i className="bi bi-list-task" style={{ color: "#6A0DAD" }}></i>
+                    <i className="bi bi-envelope" style={{ color: "black" }}></i>
+                    <i className="bi bi-arrow-repeat" style={{ color: "#6A0DAD" }}></i>
+                </div>
+
+                <Outlet context={data} />
+            </div>
+        </>
     )
 }
 
