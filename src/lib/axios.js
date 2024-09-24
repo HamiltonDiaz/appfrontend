@@ -1,7 +1,8 @@
 import axios from "axios";
+import { environment } from "../enviroments/enviroment";
 
 const api = axios.create({
-    baseURL: process.env.REACT_APP_BACKEND_API_URL
+    baseURL: environment.url
 });
 
 api.interceptors.request.use(config => {

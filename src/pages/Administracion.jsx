@@ -71,7 +71,7 @@ const Administracion = () => {
 
             <ComentariosComponent />
 
-            <button onClick={closeSeccin}>Cerrar Seccion</button>
+            <button onClick={closeSeccin}>Cerrar Sesión</button>
         </>
     )
 }
