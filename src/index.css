@@ -201,14 +201,117 @@ h4 {
   flex-direction: column;
 }
 
+.sidebar h5 {
+  font-size: 18px;
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #444;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.sidebar a.active {
+  background-color: #6A0DAD;
+}
+
+.sidebar i {
+  margin-right: 10px;
+}
+
+/* Estilos del contenido principal */
 .main-content {
   margin-left: 250px;
   padding: 20px;
 }
 
+.btn-custom {
+  margin: 5px 0;
+}
+
+.form-control {
+  height: 36px;
+}
+
+/* Estilos de la tabla */
+.table thead {
+  background-color: #f1f1f1;
+}
+
+.comments,
+.chart {
+  background-color: #dcd7d1;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.chart {
+  height: 300px;
+}
+
+.comments {
+  height: 150px;
+}
+
+/* Estilos para la barra superior con íconos */
 .topbar-icons {
   display: flex;
   justify-content: flex-end;
   padding: 10px;
   background-color: white;
+}
+
+.topbar-icons i {
+  font-size: 24px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+/* Estilos para la paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.page-item {
+  background-color: white;
+  color: #000;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: .5rem;
+}
+
+.page-item-active {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: .5rem;
+}
+
+.page-item:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para los botones de acciones */
+.action-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #6A0DAD;
+  font-size: 20px;
 }
