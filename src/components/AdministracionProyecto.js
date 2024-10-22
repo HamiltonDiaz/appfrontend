@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './AdministracionProyecto.css';
-
 import { Bar, Pie, Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 
@@ -57,24 +56,29 @@ return (
         <h1>HALADRILUY</h1>
         <nav>
           <ul>
-            <li><Link to="/">INICIO</Link></li>
-            <li><Link to="/registros">Registros</Link></li>
-            <li><Link to="/proyectos">Proyectos</Link></li>
-            <li><Link to="/proyecto-information">Proyecto information</Link></li>
-            <li><Link to="/graficas">Gráficas</Link></li>
+            <li><Link to="/"><i className="bi bi-house-door"></i> INICIO</Link></li>
+            <li><Link to="/registros"><i className="bi bi-file-earmark-text"></i> Registros</Link></li>
+            <li><Link to="/proyectos"><i className="bi bi-folder"></i> Proyectos</Link></li>
+            <li><Link to="/proyecto-information"><i className="bi bi-info-circle"></i> Proyecto information</Link></li>
+            <li><Link to="/graficas"><i className="bi bi-bar-chart"></i> Gráficas</Link></li>
           </ul>
         </nav>
       </aside>
       <main className="content">
-        <header>
+        <header className="header">
           <h2>PROYECTO</h2>
+          <div className="top-icons">
+            <i className="bi bi-person"></i>
+            <i className="bi bi-list"></i>
+            <i className="bi bi-envelope"></i>
+          </div>
         </header>
         <section className="project-form">
           <button className="new-project-btn">Nuevo Proyecto</button>
           <div className="form-fields">
             <input type="text" placeholder="Título" />
-            <input type="date" placeholder="fechainicio" />
-            <input type="date" placeholder="fechafin" />
+            <input type="date" placeholder="Fecha de Inicio" />
+            <input type="date" placeholder="Fecha de Fin" />
             <input type="text" placeholder="Ruta" />
             <input type="text" placeholder="Palabras Claves" />
             <input type="text" placeholder="Descripción" />

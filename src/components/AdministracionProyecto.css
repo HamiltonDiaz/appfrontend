@@ -5,7 +5,7 @@
 
 .sidebar {
   width: 250px;
-  background-color: #5E0D50;
+  background: linear-gradient(180deg, #5E0D50, #B83F8C);
   color: white;
   padding: 20px;
   display: flex;
@@ -13,9 +13,13 @@
   align-items: center;
 }
 
-.sidebar h1 {
+.logo {
   font-size: 24px;
   margin-bottom: 30px;
+}
+
+.logo i {
+  margin-right: 10px;
 }
 
 .sidebar nav ul {
@@ -34,13 +38,17 @@
 .sidebar nav ul li a {
   text-decoration: none;
   color: white;
-  display: block;
-  padding: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .sidebar nav ul li a:hover {
   background-color: #A92A5B;
   transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li i {
+  margin-right: 10px;
 }
 
 .content {
@@ -49,9 +57,21 @@
   padding: 20px;
 }
 
-header h2 {
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
   font-size: 24px;
   margin-bottom: 20px;
+}
+
+.top-icons i {
+  font-size: 24px;
+  margin-left: 15px;
+  color: #6A0DAD;
 }
 
 .project-form {
@@ -103,6 +123,20 @@ header h2 {
   padding: 10px;
 }
 
+.edit-btn, .delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-btn i {
+  color: #FFC107;
+}
+
+.delete-btn i {
+  color: #DC3545;
+}
+
 .pagination {
   text-align: center;
   margin-top: 20px;
@@ -120,36 +154,4 @@ header h2 {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.edit-btn {
-  background-color: #FFC107;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.delete-btn {
-  background-color: #DC3545;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.top-icons {
-  display: flex;
-  gap: 15px;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-}
-
-.top-icons i {
-  font-size: 24px;
-  color: #6A0DAD;
-  cursor: pointer;
 }
