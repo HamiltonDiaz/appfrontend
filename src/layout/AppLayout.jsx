@@ -16,7 +16,9 @@ const AppLayout = () => {
         return (
             <>
                 <div className="sidebar">
-                    <h5 className="logo">HALADRILUY <i className="bi bi-gem"></i></h5>
+                    <h5 className="logo">
+                        HALADRILUY <i className="bi bi-gem"></i> {/* Aquí se usa el ícono de diamante */}
+                    </h5>
                     <nav>
                         <ul>
                             <li><Link to="/"><i className="bi bi-house"></i> INICIO</Link></li>
