@@ -16,23 +16,17 @@ const AppLayout = () => {
         return (
             <>
                 <div className="sidebar">
-                    <h5>HALADRILUY <i className="bi bi-gem"></i></h5>
-                    <Link to="/"><i className="bi bi-house"></i> INICIO</Link>
-                    <Link to="/proyectos">
-                        <i className="bi bi-file-earmark-text"></i> Proyectos
-                    </Link>
-                    <Link to="/usuarios">
-                        <i className="bi bi-people"></i> Usuarios
-                    </Link>
-                    <Link to="/user-info">
-                        <i className="bi bi-info-circle"></i> User Information
-                    </Link>
-                    <Link to="/graficas">
-                        <i className="bi bi-bar-chart"></i> Gráficas
-                    </Link>
-                    <Link to="/comentarios">
-                        <i className="bi bi-chat-left-text"></i> Comentarios
-                    </Link>
+                    <h5 className="logo">HALADRILUY <i className="bi bi-gem"></i></h5>
+                    <nav>
+                        <ul>
+                            <li><Link to="/"><i className="bi bi-house"></i> INICIO</Link></li>
+                            <li><Link to="/proyectos"><i className="bi bi-file-earmark-text"></i> Proyectos</Link></li>
+                            <li><Link to="/usuarios"><i className="bi bi-people"></i> Usuarios</Link></li>
+                            <li><Link to="/user-info"><i className="bi bi-info-circle"></i> User Information</Link></li>
+                            <li><Link to="/graficas"><i className="bi bi-bar-chart"></i> Gráficas</Link></li>
+                            <li><Link to="/comentarios"><i className="bi bi-chat-left-text"></i> Comentarios</Link></li>
+                        </ul>
+                    </nav>
                 </div>
                 <div className="main-content">
                     <div className="topbar-icons">
