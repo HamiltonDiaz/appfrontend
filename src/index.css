@@ -11,3 +11,307 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.background-page {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.background-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../public/img.login.webp');
+  /* Imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px);
+  /* Aplica el desenfoque a la imagen de fondo */
+  z-index: -1;
+}
+
+.register-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+
+}
+
+.login-container {
+  width: 100%;
+  max-width: 320px;
+  padding: 20px;
+}
+
+.container-olvido {
+  background: linear-gradient(to bottom right, rgba(155, 89, 182, 0.8), rgba(142, 68, 173, 0.8));
+  /* Gradiente con colores originales y opacidad ajustada */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+}
+
+
+.register-box {
+  background: linear-gradient(to bottom right, rgba(76, 85, 174, 0.8), rgba(235, 176, 114, 0.8));
+  /* Gradiente con los colores primario y secundario */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.register-box .form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+}
+
+.register-box label,
+.email-recuperar {
+  display: block;
+  text-align: left;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.email-recuperar {
+  font-weight: normal;
+  margin-bottom: 1rem
+}
+
+.register-box input,
+.register-box select {
+  width: calc(50% - 30px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.form-login input,
+.form-login select {
+  width: 100%;
+}
+
+.register-box .form-row1 {
+  width: calc(200% - 1px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.register-box .form-row2 {
+  width: calc(99% - 1px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+input[type="email"],
+.recuperar-passsword {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #000A7B;
+  /* Color terciario */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login {
+  display: block;
+  margin-top: 15px;
+  color: white;
+  text-decoration: none;
+}
+
+form button:hover {
+  background-color: #4C55AE;
+  /* Color primario */
+}
+
+h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+h4 {
+  color: white;
+  margin-bottom: 20px;
+  width: 0;
+}
+
+.links {
+  margin-top: 20px;
+}
+
+.links a {
+  color: #ffffff;
+  /* Color secundario */
+  text-decoration: none;
+  font-size: 14px;
+
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #292b2c;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h5 {
+  font-size: 18px;
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #444;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.sidebar a.active {
+  background-color: #6A0DAD;
+}
+
+.sidebar i {
+  margin-right: 10px;
+}
+
+/* Estilos del contenido principal */
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+.btn-custom {
+  margin: 5px 0;
+}
+
+.form-control {
+  height: 36px;
+}
+
+/* Estilos de la tabla */
+.table thead {
+  background-color: #f1f1f1;
+}
+
+.comments,
+.chart {
+  background-color: #dcd7d1;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.chart {
+  height: 300px;
+}
+
+.comments {
+  height: 150px;
+}
+
+/* Estilos para la barra superior con íconos */
+.topbar-icons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  background-color: white;
+}
+
+.topbar-icons i {
+  font-size: 24px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+/* Estilos para la paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.page-item {
+  background-color: white;
+  color: #000;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: .5rem;
+}
+
+.page-item-active {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: .5rem;
+}
+
+.page-item:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para los botones de acciones */
+.action-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #6A0DAD;
+  font-size: 20px;
+}
