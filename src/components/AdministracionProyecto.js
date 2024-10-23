@@ -53,7 +53,9 @@ const handleDelete = () => {
 return (
     <div className="project-page">
       <aside className="sidebar">
-        <h1>HALADRILUY</h1>
+      <h5 className="logo">
+                        HALADRILUY <i className="bi bi-gem"></i> {/* Aquí se usa el ícono de diamante */}
+                    </h5>
         <nav>
           <ul>
             <li><Link to="/"><i className="bi bi-house-door"></i> INICIO</Link></li>
