@@ -14,7 +14,7 @@ const Administracion = () => {
     const url = 'users/list-all'
 
     const [users, setUsers] = useState([])
-    const [links, setLink] = useState([])
+    const [links, setLink] = useState([{ url: null, label: '' }])
 
     const closeSeccin = async () => {
         const data = await logout();

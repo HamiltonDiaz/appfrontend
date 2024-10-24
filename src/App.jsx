@@ -6,6 +6,8 @@ import Administracion from "./pages/Administracion";
 import AppLayout from "./layout/AppLayout";
 import AuthLayout from "./layout/AuthLayout";
 import ResetPassword from "./pages/auth/ResetPassword";
+import AdministracionProyecto from "./components/AdministracionProyecto";
+import ProyectPage from "./pages/proyects/ProyectPage";
 
 function App() {
 
@@ -20,6 +22,8 @@ function App() {
             <Route path="/registro" element={<RegistroPage />} />
             <Route path="/recuperacion" element={<RecuperacionPage />} />
             <Route path="/recuperacion/:token" element={<ResetPassword />} />
+            <Route path="/proyecto" element={<ProyectPage />} />
+            <Route path="/proyectos" element={<AdministracionProyecto />} />
           </Route>
 
           <Route element={<AppLayout />}>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAuth } from '../hooks/useAuth';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { Navigate } from 'react-router-dom'
 
 const AppLayout = () => {
@@ -17,7 +17,10 @@ const AppLayout = () => {
             <div className="sidebar">
                 <h5>HALADRILUY <i className="bi bi-gem"></i></h5>
                 <a href="#" className="active"><i className="bi bi-house"></i> INICIO</a>
-                <a href="#"><i className="bi bi-file-earmark-text"></i> Registros</a>
+                <Link to='/proyecto'>
+                    <i className="bi bi-file-earmark-text"></i>
+                    Proyectos
+                </Link>
                 <a href="#"><i className="bi bi-people"></i> Usuarios</a>
                 <a href="#"><i className="bi bi-info-circle"></i> User Information</a>
                 <a href="#"><i className="bi bi-bar-chart"></i> Gráficas</a>
