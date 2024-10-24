@@ -54,7 +54,7 @@ return (
     <div className="project-page">
       <aside className="sidebar">
       <h5 className="logo">
-                        HALADRILUY <i className="bi bi-gem"></i> {/* Aquí se usa el ícono de diamante */}
+                        HALADRILUY <i className="bi bi-gem"></i> 
                     </h5>
         <nav>
           <ul>
