@@ -2,10 +2,9 @@ import { isAxiosError } from "axios";
 import api from "../lib/axios";
 
 
-export async function listUsers(){
+export async function listUsers(url) {
     try {
-        const url = 'users/list-all';
-        const {data} = await api.get(url);
+        const { data } = await api.get(url);
 
         return data;
 
