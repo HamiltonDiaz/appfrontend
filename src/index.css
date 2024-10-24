@@ -269,6 +269,35 @@ h4 {
   background-color: white;
 }
 
+.gradient-background {
+  background: linear-gradient(135deg, #a22fff, #ff5b5b);
+  padding: 2rem;
+  border-radius: 1rem;
+  color: white;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.btn-custom {
+  background-color: #6f2fd1;
+  color: white;
+  width: 100%;
+}
+
+
 .topbar-icons i {
   font-size: 24px;
   margin-left: 15px;
@@ -315,3 +344,4 @@ h4 {
   color: #6A0DAD;
   font-size: 20px;
 }
+
