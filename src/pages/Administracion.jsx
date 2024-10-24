@@ -35,20 +35,10 @@ const Administracion = () => {
             setLink(data.links)
         }
     }, [data])
-
-
-
-    if (isLoading) return 'Cargando...'
-
     console.log(links);
-
-    // setUsers(data.data)
-
+    if (isLoading) return 'Cargando...'
     const userNext = async (data) => {
-
-
         const url = (data.split('v1')[1]);
-
         try {
             const userslist = await listUsers(url);
             setUsers(userslist.data);
@@ -58,14 +48,8 @@ const Administracion = () => {
 
         }
     }
-
-
     return (
-        <>
-            {/* Formulario de Búsqueda y Registro  */}
-            <FormularioUsuarioComponent />
-
-            {/* Tabla de Usuarios  */}
+        <div className="div">
             <div className="table-responsive">
                 <ToastContainer />
                 <table className="table table-striped">
@@ -88,24 +72,11 @@ const Administracion = () => {
                     </tbody>
                 </table>
             </div>
-
-            {/* Paginación debajo de la tabla  */}
             <div className="pagination">
-                <button className={`page-item ${links[0].url == null && "d-none"}`} onClick={() => userNext(links[0].url)}>&laquo;</button>
-
-                {links.map(link =>
-                    <button className={`${(link.active && "page-item-active")} page-item ${link.label.includes('&') && "d-none"}`} key={link.label} onClick={() => userNext(link.url)}>
-                        {(!link.label.includes('&') && link.label)}
-
-                    </button>)}
-                <button className={`page-item ${links[links.length - 1].url == null && "d-none"}`} onClick={() => userNext(links[links.length - 1].url)} >&raquo;</button>
-
             </div>
-
             <ComentariosComponent />
-
             <button onClick={closeSeccin}>Cerrar Sesión</button>
-        </>
+        </div>
     )
 }
 
