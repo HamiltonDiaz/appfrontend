@@ -24,7 +24,7 @@ const Administracion = () => {
 
     }
 
-    const { data, isLoading } = useQuery({
+    const { data, isLoading, refetch } = useQuery({
         queryKey: ['users', url],
         queryFn: () => listUsers(url)
     });
@@ -35,7 +35,6 @@ const Administracion = () => {
             setLink(data.links)
         }
     }, [data])
-
 
 
     if (isLoading) return 'Cargando...'
@@ -63,7 +62,7 @@ const Administracion = () => {
     return (
         <>
             {/* Formulario de Búsqueda y Registro  */}
-            <FormularioUsuarioComponent />
+            <FormularioUsuarioComponent setUsuarios={setUsers} usuarios={users} />
 
             {/* Tabla de Usuarios  */}
             <div className="table-responsive">
