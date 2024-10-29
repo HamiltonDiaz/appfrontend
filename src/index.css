@@ -398,40 +398,7 @@ h4 {
 }
 
 /* Botones */
-.modal-button-open {
-  background-color: #2eb82e;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
 
-.modal-button-open:hover {
-  background-color: #249d24;
-}
-
-.modal-button-submit {
-  background-color: #800080;
-  color: white;
-  padding: 12px;
-  width: 100%;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.modal-button-submit:hover {
-  background-color: #6d006d;
-}
-
-/* Centrar el botón */
-.modal-actions {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
 
 .list {
   list-style: none;
