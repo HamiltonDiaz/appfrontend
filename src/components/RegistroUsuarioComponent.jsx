@@ -9,13 +9,13 @@ const RegistroUsuarioComponent = ({ user }) => {
 
     const handleSaveChanges = async (updatedData) => {
         try {
-            const token = localStorage.getItem('AUTH_TOKEN'); 
-           
+            const token = localStorage.getItem('AUTH_TOKEN');
+
             if (!token) {
                 alert('No se encontró un token de autenticación. Inicia sesión nuevamente.');
                 return;
             }
-            
+
             const response = await fetch(`http://127.0.0.1:8000/api/v1/users/update`, {
                 method: 'PUT',
                 headers: {
@@ -92,7 +92,7 @@ const RegistroUsuarioComponent = ({ user }) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Cerrar
                     </Button>
-                   
+
                 </Modal.Footer>
             </Modal>
         </>

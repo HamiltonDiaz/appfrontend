@@ -1,10 +1,10 @@
-import { isAxiosError } from "axios";
 import api from "../lib/axios";
+import { isAxiosError } from 'axios'
 
 
-export async function listUsers(url) {
+export async function listProyect() {
     try {
-        const { data } = await api.get(url);
+        const { data } = await api.get("project/list-all");
 
         return data;
 
@@ -15,12 +15,10 @@ export async function listUsers(url) {
     }
 }
 
-export async function updateUsers(user) {
+export async function createProyect(proyecto) {
     try {
-        const url = "users/update";
-        const { data } = await api.put(url, user);
 
-
+        const { data } = await api.post("project/create", proyecto);
 
         return data;
 
@@ -31,10 +29,10 @@ export async function updateUsers(user) {
     }
 }
 
-export async function deleteUser(user) {
+export async function deleteProyect(proyect) {
 
     try {
-        const url = `users/delete/${user}`;
+        const url = `project/delete/${proyect}`;
         const { data } = await api.delete(url);
 
 

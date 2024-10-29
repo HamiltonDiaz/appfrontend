@@ -16,8 +16,11 @@ const AppLayout = () => {
         <>
             <div className="sidebar">
                 <h5>HALADRILUY <i className="bi bi-gem"></i></h5>
-                <a href="#" className="active"><i className="bi bi-house"></i> INICIO</a>
-                <Link to='/proyecto'>
+                <Link to="/" className="active">
+                    <i className="bi bi-house"></i>
+                    INICIO
+                </Link>
+                <Link to='/proyectos'>
                     <i className="bi bi-file-earmark-text"></i>
                     Proyectos
                 </Link>
@@ -25,7 +28,7 @@ const AppLayout = () => {
                 <a href="#"><i className="bi bi-info-circle"></i> User Information</a>
                 <a href="#"><i className="bi bi-bar-chart"></i> Gráficas</a>
                 <a href="#"><i className="bi bi-chat-left-text"></i> Comentarios</a>
-            </div>
+            </div >
             <div className="main-content">
 
                 <div className="topbar-icons">

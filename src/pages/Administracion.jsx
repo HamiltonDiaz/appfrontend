@@ -24,7 +24,7 @@ const Administracion = () => {
 
     }
 
-    const { data, isLoading } = useQuery({
+    const { data, isLoading, refetch } = useQuery({
         queryKey: ['users', url],
         queryFn: () => listUsers(url)
     });
@@ -35,7 +35,6 @@ const Administracion = () => {
             setLink(data.links)
         }
     }, [data])
-    console.log(links);
     if (isLoading) return 'Cargando...'
     const userNext = async (data) => {
         const url = (data.split('v1')[1]);
