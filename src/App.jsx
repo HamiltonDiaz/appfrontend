@@ -2,12 +2,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/auth/LoginPage";
 import RecuperacionPage from "./pages/auth/RecuperacionPage";
 import RegistroPage from "./pages/auth/RegistroPage";
-import Administracion from "./pages/Administracion";
+import Administracion from "./pages/users/Administracion";
 import AppLayout from "./layout/AppLayout";
 import AuthLayout from "./layout/AuthLayout";
 import ResetPassword from "./pages/auth/ResetPassword";
-import AdministracionProyecto from "./components/AdministracionProyecto";
-import ProyectPage from "./pages/proyects/ProyectPage";
+import ProyectoPage from "./pages/proyects/ProyectoPage";
 
 function App() {
 
@@ -25,9 +24,8 @@ function App() {
           </Route>
 
           <Route element={<AppLayout />}>
-            <Route path="/proyectos" element={<AdministracionProyecto />} />
-            <Route path="/proyecto" element={<ProyectPage />} />
             <Route path="/" element={<Administracion />} index />
+            <Route path="/proyectos" element={<ProyectoPage />} />
           </Route>
         </Routes>
       </BrowserRouter >
