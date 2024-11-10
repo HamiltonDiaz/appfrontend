@@ -11,12 +11,16 @@ import {
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast, ToastContainer } from "react-toastify";
 import { useForm } from "react-hook-form";
+import ModalEditProject from "../../components/ModalProject/ModalEditProject";
 
 const ProyectoPage = () => {
   const { handleSubmit, register, reset } = useForm();
   const [proyecto, setproyecto] = useState([]);
   const [palabrasClaves, setpalabrasClaves] = useState([]);
   const [palabra, setpalabra] = useState("");
+
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const { data, isLoading } = useQuery({
     queryKey: ["proyect"],
@@ -125,8 +129,9 @@ const ProyectoPage = () => {
     ],
   };
 
-  const handleEdit = () => {
-    alert("Editar proyecto");
+  const handleEdit = (project) => {
+    setSelectedProject(project); // Selecciona el proyecto
+    setShowModal(true); // Muestra el modal
   };
 
   const handleDelete = (e) => {
@@ -135,7 +140,12 @@ const ProyectoPage = () => {
     }
   };
   const handleDownload = (e) => {
-    descargar.mutate(e);
+    if (e) {
+      descargar.mutate(e);
+      return;
+    } 
+    toast.error("Error: No se pudo descargar el archivo.");
+    
   };
 
   const handleKeyDownWord = (e) => {
@@ -178,11 +188,11 @@ const ProyectoPage = () => {
           <h3>Proyectos</h3>
         </header>
         <section className="project-form">
-          <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
+          <div className="accordion accordion-flush" id="accordionFlushExample">
+            <div className="accordion-item">
+              <h2 className="accordion-header">
                 <button
-                  class="accordion-button collapsed"
+                  className="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseOne"
@@ -194,10 +204,10 @@ const ProyectoPage = () => {
               </h2>
               <div
                 id="flush-collapseOne"
-                class="accordion-collapse collapse"
+                className="accordion-collapse collapse"
                 data-bs-parent="#accordionFlushExample"
               >
-                <div class="accordion-body">
+                <div className="accordion-body">
                   <div className="">
                     <form
                       onSubmit={handleSubmit(onSubmit)}
@@ -290,7 +300,7 @@ const ProyectoPage = () => {
                     </form>
                   </div>
                   <div
-                    class="btn-group mt-3"
+                    className="btn-group mt-3"
                     role="group"
                     aria-label="Basic example"
                     style={{ flexWrap: "wrap" }}
@@ -298,7 +308,7 @@ const ProyectoPage = () => {
                     {palabrasClaves.map((chip, index) => (
                       <button
                         type="button"
-                        class="btn btn-primary m-1 "
+                        className="btn btn-primary m-1 "
                         style={{ cursor: "not-allowed" }}
                         key={index}
                         onClick={(e) => eliminarpalabra(e)}
@@ -312,6 +322,14 @@ const ProyectoPage = () => {
               </div>
             </div>
           </div>
+        </section>
+
+        <section>
+          <ModalEditProject
+            project={selectedProject}
+            showModal={showModal}
+            onClose={() => setShowModal(false)}
+          />
         </section>
         <section className="project-table">
           <table>
@@ -327,15 +345,15 @@ const ProyectoPage = () => {
             </thead>
             <tbody>
               {proyecto.map((proyecto) => (
-                <tr>
+                <tr key={proyecto.titulo + proyecto.id}>
                   <td>{proyecto.titulo}</td>
                   <td>{proyecto.fechainicio}</td>
                   <td>{proyecto.fechafin}</td>
                   <td>{proyecto.palabras_claves}</td>
                   <td>{proyecto.descripcion}</td>
-                  <td style={{ display: "flex" }} >
+                  <td style={{ display: "flex" }}>
                     <button
-                      onClick={handleEdit}
+                      onClick={() => handleEdit(proyecto)}
                       className="action-btn btn btn-success m-1"
                     >
                       <span className="bi bi-pencil-square"></span>
