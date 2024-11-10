@@ -12,10 +12,32 @@ export async function listProyect() {
         }
     }
 }
+export async function listProyectById(idProyect) {
+    try {
+        const { data } = await api.get(`project/find/${idProyect}`);
+        return data;
+    } catch (error) {
+        if (isAxiosError(error) && error.response) {
+            throw new Error(error.response.data.error);
+        }
+    }
+}
+
 
 export async function createProyect(proyecto) {
     try {
         const { data } = await api.post("project/create", proyecto);
+        return data;
+    } catch (error) {
+        if (isAxiosError(error) && error.response) {
+            throw new Error(error.response.data.error);
+        }
+    }
+}
+
+export async function editProyect(proyecto) {
+    try {
+        const { data } = await api.post("project/edit", proyecto);
         return data;
     } catch (error) {
         if (isAxiosError(error) && error.response) {
