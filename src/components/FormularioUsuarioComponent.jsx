@@ -13,7 +13,8 @@ const FormularioUsuarioComponent = ({ userData, onSave }) => {
         primer_apellido: '',
         segundo_apellido: '',
         telefono: '',
-        numero_identificacion: ''
+        numero_identificacion: '',
+        id_tipos_identificacion: ''
     });
 
     useEffect(() => {
@@ -29,7 +30,9 @@ const FormularioUsuarioComponent = ({ userData, onSave }) => {
                 primer_apellido: userData.primer_apellido || '',
                 segundo_apellido: userData.segundo_apellido || '',
                 telefono: userData.telefono || '',
-                numero_identificacion: userData.numero_identificacion || ''
+                numero_identificacion: userData.numero_identificacion || '',
+                id_tipos_identificacion: userData.id_tipos_identificacion || "1",
+                id_estado: 1
             });
         }
     }, [userData]);
@@ -47,6 +50,14 @@ const FormularioUsuarioComponent = ({ userData, onSave }) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="div">
+                <div className="mb-3">
+                    <label htmlFor="idTipo" className="form-label">Tipo de identificación</label>
+                    <select id='idTipo' className='form-control' name='id_tipos_identificacion' onChange={handleChange}>
+                        <option value="1">Cédula de Ciudadanía</option>
+                        <option value="2">Tarjeta de Identidad</option>
+                        <option value="3">Cédula de Extranjería</option>
+                    </select>
+                </div>
                 <div className="mb-3">
                     <label htmlFor="idNumber" className="form-label">Número de identificación</label>
                     <input

@@ -15,6 +15,20 @@ export async function listUsers(url) {
     }
 }
 
+export async function findUser(idUser) {
+    try {
+        const url = `users/find/${idUser}`
+        const { data } = await api.get(url);
+
+        return data;
+
+    } catch (error) {
+        if (isAxiosError(error) && error.response) {
+            throw new Error(error.response.data.error);
+        }
+    }
+}
+
 export async function updateUsers(user) {
     try {
         const url = "users/update";

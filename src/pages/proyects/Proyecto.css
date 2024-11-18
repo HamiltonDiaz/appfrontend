@@ -54,13 +54,24 @@ header h2 {
   margin-top: 20px;
 }
 
-.project-table table, .project-table th, .project-table td {
+.project-table table,
+.project-table th,
+.project-table td {
   border: 1px solid #ddd;
   text-align: left;
 }
 
-.project-table th, .project-table td {
+.project-table th,
+.project-table td {
   padding: 10px;
+}
+
+.project-table tr {
+  transition: 0.2s all ease-in-out;
+}
+
+.project-table tr:hover {
+  background-color: #ccc;
 }
 
 .pagination {
@@ -74,7 +85,9 @@ header h2 {
   margin-top: 30px;
 }
 
-.graph-bar, .graph-pie, .graph-line {
+.graph-bar,
+.graph-pie,
+.graph-line {
   width: 30%;
   background-color: white;
   padding: 20px;
