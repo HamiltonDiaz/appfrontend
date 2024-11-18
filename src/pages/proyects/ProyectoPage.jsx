@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Proyecto.css";
+import { useNavigate } from "react-router-dom";
 import { Bar, Pie, Line } from "react-chartjs-2";
 import "chart.js/auto";
 import {
@@ -12,6 +13,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast, ToastContainer } from "react-toastify";
 import { useForm } from "react-hook-form";
 import ModalEditProject from "../../components/ModalProject/ModalEditProject";
+import BuscarUsuario from "../../components/BuscarUsuario";
 
 const ProyectoPage = () => {
   const { handleSubmit, register, reset } = useForm();
@@ -28,6 +30,7 @@ const ProyectoPage = () => {
   });
 
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   const { mutate } = useMutation({
     mutationFn: createProyect,
@@ -95,6 +98,11 @@ const ProyectoPage = () => {
     }
   }, [data]);
 
+  useEffect(() => {
+    queryClient.invalidateQueries("proyect");
+
+  }, [showModal]);
+
   const barData = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May"],
     datasets: [
@@ -143,9 +151,9 @@ const ProyectoPage = () => {
     if (e) {
       descargar.mutate(e);
       return;
-    } 
+    }
     toast.error("Error: No se pudo descargar el archivo.");
-    
+
   };
 
   const handleKeyDownWord = (e) => {
@@ -169,6 +177,7 @@ const ProyectoPage = () => {
       formData.append("palabras_claves[]", pal);
     });
     formData.append("fechainicio", data.fechainicio);
+    formData.append("fechafin", data.fechafin);
     formData.append("id_categoria", "1");
     if (data.archivo && data.archivo.length > 0)
       formData.append("archivo", data.archivo[0]);
@@ -179,6 +188,10 @@ const ProyectoPage = () => {
     });
   };
 
+  const goToPoryect = (data) => {
+    navigate(`/proyecto/${data}`)
+
+  }
   return (
     <div className="project-page">
       <ToastContainer />
@@ -324,6 +337,7 @@ const ProyectoPage = () => {
           </div>
         </section>
 
+        <BuscarUsuario buscar={"Proyecto"} setState={setproyecto}></BuscarUsuario>
         <section>
           <ModalEditProject
             project={selectedProject}
@@ -369,6 +383,12 @@ const ProyectoPage = () => {
                       className="action-btn btn btn-info m-1"
                     >
                       <i className="bi bi bi-cloud-arrow-down"></i>
+                    </button>
+                    <button
+                      onClick={() => goToPoryect(proyecto.id)}
+                      className="action-btn btn btn-success m-1"
+                    >
+                      <i class="bi bi-eye"></i>
                     </button>
                   </td>
                 </tr>

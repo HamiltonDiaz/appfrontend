@@ -23,9 +23,10 @@ export async function listProyectById(idProyect) {
     }
 }
 
-
 export async function createProyect(proyecto) {
     try {
+        console.log(proyecto);
+
         const { data } = await api.post("project/create", proyecto);
         return data;
     } catch (error) {
@@ -37,7 +38,8 @@ export async function createProyect(proyecto) {
 
 export async function editProyect(proyecto) {
     try {
-        const { data } = await api.post("project/edit", proyecto);
+        console.log(proyecto);
+        const { data } = await api.post("project/update", proyecto);
         return data;
     } catch (error) {
         if (isAxiosError(error) && error.response) {
@@ -60,12 +62,24 @@ export async function deleteProyect(proyect) {
 export async function downloadProyect(file) {
     try {
         const url = `project/download/${file}`;
-        const { data } = await api.get(url,{ responseType: 'blob' });
+        const { data } = await api.get(url, { responseType: 'blob' });
         return data;
     } catch (error) {
         if (isAxiosError(error) && error.response) {
             throw new Error(error.response.data.error);
         }
         throw new Error("Error al descargar el archivo");
+    }
+}
+export async function agregarUsuario(usuario) {
+    try {
+        const url = `project/assign-member`;
+        const { data } = await api.post(url, usuario);
+        return data;
+    } catch (error) {
+        if (isAxiosError(error) && error.response) {
+            throw new Error(error.response.data.error);
+        }
+        throw new Error("Error al asignar el usuario al proyecto");
     }
 }

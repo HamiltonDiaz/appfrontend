@@ -7,6 +7,7 @@ import AppLayout from "./layout/AppLayout";
 import AuthLayout from "./layout/AuthLayout";
 import ResetPassword from "./pages/auth/ResetPassword";
 import ProyectoPage from "./pages/proyects/ProyectoPage";
+import PoryectoID from "./pages/proyects/PoryectoID";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route element={<AppLayout />}>
             <Route path="/" element={<Administracion />} index />
             <Route path="/proyectos" element={<ProyectoPage />} />
+            <Route path="/proyecto/:id" element={<PoryectoID />} />
           </Route>
         </Routes>
       </BrowserRouter >

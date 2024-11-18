@@ -2,76 +2,54 @@ import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import FormularioUsuarioComponent from "./FormularioUsuarioComponent";
 import { environment } from "../enviroments/enviroment";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import { deleteUser, updateUsers } from "../services/UserService";
 
 const RegistroUsuarioComponent = ({ user }) => {
   const [show, setShow] = React.useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const queryClient = useQueryClient();
+
+  const eliminar = useMutation({
+    mutationFn: deleteUser,
+    onError: (err) => {
+      toast(err.message);
+    },
+    onSuccess: (data) => {
+      if (!data.success) {
+        toast.error(data.message);
+      } else {
+        queryClient.invalidateQueries("users");
+        toast.success(data.message);
+      }
+    },
+  });
+  const editar = useMutation({
+    mutationFn: updateUsers,
+    onError: (err) => {
+      toast(err.message);
+    },
+    onSuccess: (data) => {
+      if (!data.success) {
+        toast.error(data.message);
+      } else {
+        queryClient.invalidateQueries("users");
+        toast.success(data.message);
+        handleClose()
+      }
+    },
+  });
 
   const handleSaveChanges = async (updatedData) => {
-    try {
-      const token = localStorage.getItem("AUTH_TOKEN");
+    editar.mutate(updatedData);
 
-      if (!token) {
-        alert(
-          "No se encontró un token de autenticación. Inicia sesión nuevamente."
-        );
-        return;
-      }
+  }
 
-      const response = await fetch(`${environment.url}/users/update`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(updatedData),
-      });
-
-      if (response.ok) {
-        alert("Usuario actualizado con éxito");
-        handleClose();
-        window.location.reload();
-      } else {
-        const errorData = await response.json();
-        alert(errorData.message || "Error al actualizar el usuario");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
   const handleDeleteUser = async (userId) => {
     if (window.confirm("¿Estás seguro de que deseas eliminar este registro?")) {
-      try {
-        const token = localStorage.getItem("AUTH_TOKEN");
-
-        if (!token) {
-          alert(
-            "No se encontró un token de autenticación. Inicia sesión nuevamente."
-          );
-          return;
-        }
-
-        const response = await fetch(
-          `${environment.url}users/delete/${userId}`,
-          {
-            method: "DELETE",
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        if (response.ok) {
-          alert("Usuario eliminado con éxito");
-          window.location.reload();
-        } else {
-          const errorData = await response.json();
-          alert(errorData.message || "Error al eliminar el usuario");
-        }
-      } catch (error) {
-        console.error("Error:", error);
-      }
+      eliminar.mutate(userId);
     }
   };
   return (

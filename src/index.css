@@ -340,13 +340,14 @@ h4 {
 .action-btn {
   font-size: 10px;
   padding: 5px;
-  margin-inline: 2px ;
+  margin-inline: 2px;
   color: white;
 }
 
 /* Fondo oscuro */
 .modal-overlay {
   position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
@@ -359,25 +360,21 @@ h4 {
 
 /* Contenido del modal */
 .modal-content {
-  background: linear-gradient(45deg, #800080, #ff6600);
+  background: linear-gradient(45deg, #fbe3fb, #fcc5e7);
   padding: 20px;
   border-radius: 20px;
   width: 450px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  color: white;
+  color: #000;
   font-family: 'Arial', sans-serif;
 }
 
-.modal-edit-project{
+.modal-edit-project {
   width: 700px !important;
 }
 
-/* Título del modal */
-.modal-title {
-  font-size: 30px;
-  margin-bottom: 20px;
-  text-align: center;
-  color: white;
+.btn-close-modal {
+  all: unset;
 }
 
 /* Estilos del formulario */
@@ -450,3 +447,86 @@ h4 {
   transition: background-color 0.3s ease;
 }
 
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.custom-input {
+  width: 400px;
+  padding: 12px 16px 12px 40px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.3s ease;
+  background: #fff;
+  color: #333;
+}
+
+.custom-input:focus {
+  border-color: #5E0D50;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(210, 6, 218, 0.3);
+}
+
+.custom-input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.custom-button {
+  margin: 10px 10px;
+  background: linear-gradient(90deg, #5E0D50, #a83395);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.custom-button:hover {
+  background: linear-gradient(90deg, #5f0750, #cd64bc);
+  transform: translateY(-2px);
+}
+
+.custom-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-icon {
+  all: unset;
+}
+
+.informacion_usuario {
+  font-weight: 600;
+}
+
+.informacion_usuario span {
+  font-weight: normal;
+}
+
+.h2-modal-user {
+  color: #000;
+  text-align: center;
+}
+
+.modal-titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
