@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: react_app
+    ports:
+      - "3000:3000" # Mapea el puerto 3000 del contenedor al 3000 del host
+    volumes:
+      - .:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
